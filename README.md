@@ -26,9 +26,9 @@ npm run lint:eslint：代码检查命令，
 npm run lint:md：markdown可视化命令，
 npm run pre-check：tsc检测类型命令，
 npm run commit：一键提交命令，
-npm run release：，
-npm run release:alpha：，
-npm run release:rc：，
+npm run release：自动化升级版本号、生成 changelog 及 tag的命令，
+npm run release:alpha：同上（内测），
+npm run release:rc：同上（公测），
 npm run release:major：，
 npm run release:minor：，
 npm run release:patch：
