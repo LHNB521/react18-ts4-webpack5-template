@@ -31,5 +31,6 @@ npm run release:alpha：同上（内测），
 npm run release:rc：同上（公测），
 npm run release:major：，
 npm run release:minor：，
-npm run release:patch：
+npm run release:patch：，
+serve -S dist：本地环境启动dist打包项目
 ```
