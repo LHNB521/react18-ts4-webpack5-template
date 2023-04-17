@@ -34,3 +34,24 @@ npm run release:minor：，
 npm run release:patch：，
 serve -S dist：本地环境启动dist打包项目
 ```
+
+## 目录结构
+
+```sh
+├── public/
+└── src/
+    ├── api/          // api接口目录
+    ├── assets/       // 静态资源目录
+    ├── components/   // 公共组件目录
+    ├── router/       // 路由配置目录
+    ├── store/        // 状态管理目录
+    ├── styles/       // 通用 CSS 目录
+    ├── utils/        // 工具函数目录
+    ├── views/        // 页面组件目录
+    ├── layout/        // 页面布局目录
+    ├── App.tsx
+    ├── index.tsx
+├── tsconfig.json       // TypeScript 配置文件
+├── build/              // webpack 配置文件
+└── package.json
+```
