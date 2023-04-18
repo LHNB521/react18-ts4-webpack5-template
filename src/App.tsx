@@ -1,12 +1,19 @@
 import { Suspense } from 'react'
-import { RouterProvider } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import MyLoading from './components/MyLoading'
-import router from './router'
+import Router from './routers'
+import AuthRouter from '@/routers/utils/authRouter'
+
 function App() {
   return (
     <Suspense fallback={<MyLoading />}>
-      <RouterProvider router={router}></RouterProvider>
+      <HashRouter>
+        <AuthRouter>
+          <Router />
+        </AuthRouter>
+      </HashRouter>
     </Suspense>
   )
 }
+
 export default App
