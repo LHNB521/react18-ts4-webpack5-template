@@ -4,9 +4,9 @@ import reduxThunk from 'redux-thunk'
 import reduxPromise from 'redux-promise'
 import storage from 'redux-persist/lib/storage'
 import auth from './modules/auth/reducer'
-
+import global from './modules/global/reducer'
 // 创建reducer(拆分reducer)
-const reducer = combineReducers({ auth })
+const reducer = combineReducers({ auth, global })
 // redux 持久化配置
 const persistConfig = {
   key: 'root',

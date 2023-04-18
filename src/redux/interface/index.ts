@@ -5,3 +5,9 @@ export interface AuthState {
   }
   authRouter: string[]
 }
+
+/* GlobalState */
+export interface GlobalState {
+  token: string
+  userInfo: any
+}
