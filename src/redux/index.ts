@@ -7,7 +7,6 @@ import auth from './modules/auth/reducer'
 
 // 创建reducer(拆分reducer)
 const reducer = combineReducers({ auth })
-
 // redux 持久化配置
 const persistConfig = {
   key: 'root',
@@ -25,4 +24,5 @@ const middleWares = applyMiddleware(reduxThunk, reduxPromise)
 const store = createStore(persistReducerConfig, composeEnhancers(middleWares))
 // 创建持久化 store
 const persistor = persistStore(store)
+
 export { store, persistor }
