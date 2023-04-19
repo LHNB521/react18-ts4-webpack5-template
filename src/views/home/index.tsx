@@ -1,8 +1,10 @@
+import MapIndex from '@/components/MapIndex'
+
 const home: React.FC = () => {
   return (
-    <div>
-      <div>dsadjash</div>
-    </div>
+    <>
+      <MapIndex />
+    </>
   )
 }
 export default home
