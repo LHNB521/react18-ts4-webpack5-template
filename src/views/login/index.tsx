@@ -1,14 +1,36 @@
-import { Button, Form, Input } from 'antd'
+import { Button, Form, Input, message } from 'antd'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { loginApi } from '@/api/login'
+import { setToken } from '@/redux/modules/global/action'
+import { HOME_URL } from '@/config/config'
 
-const onFinish = (values: any) => {
-  console.log('Success:', values)
-}
+function login(props: any) {
+  const [loading, setLoading] = useState<boolean>(false)
+  const navigate = useNavigate()
+  const { setToken } = props
 
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo)
-}
+  // 登录
+  const onFinish = async (loginForm: any) => {
+    console.log('Success:', loginForm)
 
-function login() {
+    try {
+      setLoading(true)
+      const data = await loginApi(loginForm)
+      setToken(data?.token || null)
+      message.success('登录成功！')
+      navigate(HOME_URL)
+      console.log(data)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo)
+  }
+
   return (
     <Form
       name='basic'
@@ -29,11 +51,12 @@ function login() {
       </Form.Item>
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type='primary' htmlType='submit'>
+        <Button type='primary' htmlType='submit' loading={loading}>
           登录
         </Button>
       </Form.Item>
     </Form>
   )
 }
-export default login
+const mapDispatchToProps = { setToken }
+export default connect(null, mapDispatchToProps)(login)

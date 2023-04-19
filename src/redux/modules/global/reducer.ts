@@ -4,7 +4,7 @@ import { GlobalState } from '@/redux/interface'
 import * as types from '@/redux/mutation-types'
 
 const globalState: GlobalState = {
-  token: '123',
+  token: '',
   userInfo: ''
 }
 
