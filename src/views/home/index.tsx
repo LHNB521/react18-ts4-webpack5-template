@@ -1,5 +1,8 @@
-function home() {
-  return <div>123</div>
+const home: React.FC = () => {
+  return (
+    <div>
+      <div>dsadjash</div>
+    </div>
+  )
 }
-
 export default home
