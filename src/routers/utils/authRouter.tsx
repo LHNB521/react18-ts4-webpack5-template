@@ -14,7 +14,6 @@ const AuthRouter = (props: { children: JSX.Element }) => {
   if (!route.meta?.requiresAuth) return props.children
 
   // * 判断是否有Token
-  console.log(store.getState().global)
   const { token } = store.getState().global
   if (!token) return <Navigate to='/login' replace />
 
