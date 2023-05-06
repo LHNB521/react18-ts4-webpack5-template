@@ -1,5 +1,10 @@
-function home() {
-  return <div>123</div>
-}
+import MapIndex from '@/components/MapIndex'
 
+const home: React.FC = () => {
+  return (
+    <>
+      <MapIndex />
+    </>
+  )
+}
 export default home

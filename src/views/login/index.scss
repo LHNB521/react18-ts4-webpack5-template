@@ -1,0 +1,35 @@
+$blue: #1875e7;
+$side: left;
+$topHeight: 5vh;
+
+@font-face {
+  font-family: 'OPlusSans3';
+  src: url('@/assets/fonts/OPlusSans3-Bold.ttf') format('truetype');
+}
+
+.scssBox {
+  width: 100vw;
+  height: 100vh;
+  background-color: $blue;
+  position: relative;
+
+  .scssTitle {
+    height: $topHeight;
+    font-family: "OPlusSans3";
+    font-size: 24px;
+    color: aliceblue;
+  }
+
+  .scssLogin {
+    position: absolute;
+    left: 70%;
+    top: 60%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 260px;
+    border-radius: 10px;
+  }
+}
