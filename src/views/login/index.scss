@@ -22,8 +22,8 @@ $topHeight: 5vh;
 
   .scssLogin {
     position: absolute;
-    left: 70%;
-    top: 60%;
+    left: calc(50% - 200px);
+    top: calc(50% - 130px);
     background-color: #fff;
     display: flex;
     justify-content: center;

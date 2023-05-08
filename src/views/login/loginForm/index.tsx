@@ -15,8 +15,8 @@ function loginForm(props: any) {
   const onFinish = async (loginForm: any) => {
     try {
       setLoading(true)
-      const data = await loginApi(loginForm)
-      setToken(data?.token)
+      const data: any = await loginApi(loginForm)
+      setToken(data.token)
       message.success('登录成功！')
       navigate(HOME_URL)
     } finally {
