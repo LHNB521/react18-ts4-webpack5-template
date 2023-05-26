@@ -1,17 +1,11 @@
 import { lazy } from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
 import { RouteObject } from '@/routers/interface'
-import homeRouter from './modules/home'
+import { LayoutIndex } from '@/routers/constant'
 
 const Login = lazy(() => import('@/views/login'))
+const Home = lazy(() => import('@/views/home'))
 
-// * 处理路由
-export const routerArray: RouteObject[] = []
-Object.keys(homeRouter).forEach(item => {
-  Object.keys(homeRouter[item]).forEach((key: any) => {
-    routerArray.push(...homeRouter[item][key])
-  })
-})
 export const rootRouter: RouteObject[] = [
   {
     path: '/',
@@ -26,7 +20,20 @@ export const rootRouter: RouteObject[] = [
       key: 'login'
     }
   },
-  ...routerArray
+  {
+    element: <LayoutIndex />,
+    children: [
+      {
+        path: '/home',
+        element: <Home />,
+        meta: {
+          requiresAuth: true,
+          title: '首页',
+          key: 'home'
+        }
+      }
+    ]
+  }
 ]
 const Router = () => {
   const routes = useRoutes(rootRouter as any)
