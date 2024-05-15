@@ -10,7 +10,7 @@
 ## 2.命令介绍
 
 ```shell
-npm run dev： 本地开发环境启动命令; 
+npm run dev： 本地开发环境启动命令;
 npm run dev:dev：本地开发环境启动命令（同上），
 npm run dev:test：测试开发环境启动命令，
 npm run dev:pre：预发环境启动命令，
@@ -55,3 +55,9 @@ serve -S dist：本地环境启动dist打包项目
 ├── build/              // webpack 配置文件
 └── package.json
 ```
+
+## pnpm 检查依赖版本和升级
+pnpm check # 检查依赖版本
+pnpm outdated # 检查依赖版本
+pnpm update xxx@latest # 升级依赖
+pnpm update --latest # 升级所有依赖
