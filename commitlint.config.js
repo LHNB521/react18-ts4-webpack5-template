@@ -36,17 +36,6 @@ module.exports = {
   },
   prompt: {
     messages: {
-      // 英文版
-      // type: "Select the type of change that you're committing:",
-      // scope: 'Denote the SCOPE of this change (optional):',
-      // customScope: 'Denote the SCOPE of this change:',
-      // subject: 'Write a SHORT, IMPERATIVE tense description of the change:\n',
-      // body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
-      // breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
-      // footerPrefixsSelect: 'Select the ISSUES type of changeList by this change (optional):',
-      // customFooterPrefixs: 'Input ISSUES prefix:',
-      // footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
-      // confirmCommit: 'Are you sure you want to proceed with the commit above?'
       // 中文版
       type: '选择你要提交的类型 :',
       scope: '选择一个提交范围（可选）:',
@@ -60,62 +49,6 @@ module.exports = {
       confirmCommit: '是否提交或修改commit ?'
     },
     types: [
-      // 英文版
-      // {
-      //   value: 'feat',
-      //   name: 'feat:     🚀  A new feature',
-      //   emoji: '🚀'
-      // },
-      // {
-      //   value: 'fix',
-      //   name: 'fix:      🧩  A bug fix',
-      //   emoji: '🧩'
-      // },
-      // {
-      //   value: 'docs',
-      //   name: 'docs:     📚  Documentation only changes',
-      //   emoji: '📚'
-      // },
-      // {
-      //   value: 'style',
-      //   name: 'style:    🎨  Changes that do not affect the meaning of the code',
-      //   emoji: '🎨'
-      // },
-      // {
-      //   value: 'refactor',
-      //   name: 'refactor: ♻️   A code change that neither fixes a bug nor adds a feature',
-      //   emoji: '♻️'
-      // },
-      // {
-      //   value: 'perf',
-      //   name: 'perf:     ⚡️  A code change that improves performance',
-      //   emoji: '⚡️'
-      // },
-      // {
-      //   value: 'test',
-      //   name: 'test:     ✅  Adding missing tests or correcting existing tests',
-      //   emoji: '✅'
-      // },
-      // {
-      //   value: 'build',
-      //   name: 'build:    📦️   Changes that affect the build system or external dependencies',
-      //   emoji: '📦️'
-      // },
-      // {
-      //   value: 'ci',
-      //   name: 'ci:       🎡  Changes to our CI configuration files and scripts',
-      //   emoji: '🎡'
-      // },
-      // {
-      //   value: 'chore',
-      //   name: "chore:    🔨  Other changes that don't modify src or test files",
-      //   emoji: '🔨'
-      // },
-      // {
-      //   value: 'revert',
-      //   name: 'revert:   ⏪️  Reverts a previous commit',
-      //   emoji: '⏪️'
-      // }
       // 中文版
       { value: '特性', name: '特性:   🚀  新增功能', emoji: '🚀' },
       { value: '修复', name: '修复:   🧩  修复缺陷', emoji: '🧩' },
