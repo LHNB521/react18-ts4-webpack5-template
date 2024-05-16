@@ -1,4 +1,4 @@
-import { Button, Divider, Form, Input, message } from 'antd'
+import { Card } from 'antd'
 import { useState } from 'react'
 import LoginForm from './loginForm'
 import scssStyles from './index.scss'
@@ -7,10 +7,9 @@ const login = () => {
   const [title] = useState('xxx系统')
   return (
     <div className={scssStyles.scssBox}>
-      <div className={scssStyles.scssTitle}>{title}</div>
-      <div className={scssStyles.scssLogin}>
+      <Card title={title} style={{ width: 500 }}>
         <LoginForm />
-      </div>
+      </Card>
     </div>
   )
 }

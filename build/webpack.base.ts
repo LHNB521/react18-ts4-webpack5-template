@@ -50,8 +50,8 @@ const baseConfig: Configuration = {
       {
         test: tsxRegex, // 匹配.ts, tsx文件
         exclude: /node_modules/,
-        use: 'babel-loader'
-        // use: ['thread-loader', 'babel-loader'] // 项目变大之后再开启多进程loader
+        // use: 'babel-loader'
+        use: ['thread-loader', 'babel-loader'] // 项目变大之后再开启多进程loader
       },
       {
         test: cssRegex, // 匹配 css 文件

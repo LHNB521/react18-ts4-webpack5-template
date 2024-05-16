@@ -15,7 +15,7 @@ function loginForm(props: any) {
   const onFinish = async (loginForm: any) => {
     try {
       setLoading(true)
-      const data = await loginApi(loginForm)
+      const data: any = await loginApi(loginForm)
       setToken(data?.token)
       message.success('登录成功！')
       navigate(HOME_URL)
@@ -31,9 +31,6 @@ function loginForm(props: any) {
   return (
     <Form
       name='basic'
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      style={{ maxWidth: 600 }}
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
