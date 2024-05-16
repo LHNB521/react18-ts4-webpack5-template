@@ -1,26 +1,14 @@
 import axios from 'axios'
 import { getToken } from '@/utils/auth'
-import { ElNotification, ElMessageBox, ElMessage } from 'element-plus'
+import { message } from 'antd'
 import { tansParams } from './tools'
 import errorCode from './errorCode'
-
-interface FcResponse<T> {
-  errno: string
-  errmsg: string
-  data: T
-}
-type Fn = (data: FcResponse<any>) => unknown
-interface IAnyObj {
-  [index: string]: unknown
-}
 
 // 是否显示重新登录
 export const isRelogin = { show: false }
 
-console.log(process.env.BASE_ENV)
-
 const service = axios.create({
-  baseURL: process.env.BASE_ENV,
+  baseURL: '/api',
   timeout: 10000
 })
 /**
@@ -58,42 +46,29 @@ service.interceptors.response.use(
     if (code === 401) {
       if (!isRelogin.show) {
         isRelogin.show = true
-        ElMessageBox.confirm('登录状态已过期，您可以继续留在该页面，或者重新登录', '系统提示', {
-          confirmButtonText: '重新登录',
-          cancelButtonText: '取消',
-          type: 'warning'
-        })
-          .then(() => {
-            isRelogin.show = false
-            location.href = ''
-          })
-          .catch(() => {
-            isRelogin.show = false
-          })
       }
       return Promise.reject('无效的会话，或者会话已过期，请重新登录。')
     } else if (code === 500) {
-      ElMessage({ message: msg, type: 'error' })
+      message.open({ content: msg, type: 'error' })
       return Promise.reject(new Error(msg))
     } else if (code === 601) {
-      ElMessage({ message: msg, type: 'warning' })
+      message.open({ content: msg, type: 'warning' })
       return Promise.reject(new Error(msg))
     } else if (code !== 200) {
-      ElNotification.error({ title: msg })
       return Promise.reject('error')
     }
     return Promise.resolve(res.data)
   },
   error => {
-    let { message } = error
-    if (message === 'Network Error') {
-      message = '后端接口连接异常'
-    } else if (message.includes('timeout')) {
-      message = '系统接口请求超时'
-    } else if (message.includes('Request failed with status code')) {
-      message = '系统接口' + message.substr(message.length - 3) + '异常'
+    let { msg } = error
+    if (msg === 'Network Error') {
+      msg = '后端接口连接异常'
+    } else if (msg?.includes('timeout')) {
+      msg = '系统接口请求超时'
+    } else if (msg?.includes('Request failed with status code')) {
+      msg = '系统接口' + msg?.substr(msg.length - 3) + '异常'
     }
-    ElMessage({ message: message, type: 'error', duration: 5 * 1000 })
+    message.open({ content: msg, type: 'error', duration: 5 * 1000 })
     return Promise.reject(error)
   }
 )

@@ -14,9 +14,10 @@ const devConfig: Configuration = merge(baseConfig, {
   mode: 'development', // 开发模式,打包更加快速,省了代码优化步骤
   devtool: 'eval-cheap-module-source-map',
   plugins: [
-    new ReactRefreshWebpackPlugin() // 添加热更新插件
+    new ReactRefreshWebpackPlugin({ overlay: false }) // 添加热更新插件
   ],
   devServer: {
+    allowedHosts: 'all',
     host: '0.0.0.0', // 地址
     port: '8080', // 端口
     open: false, // 是否自动打开，关闭
@@ -27,7 +28,24 @@ const devConfig: Configuration = merge(baseConfig, {
     static: {
       directory: path.join(__dirname, '../public') // 托管静态资源public文件夹
     },
-    headers: { 'Access-Control-Allow-Origin': '*' }
+    client: {
+      logging: 'error',
+      progress: true,
+      overlay: {
+        errors: true,
+        warnings: false
+      }
+    },
+    proxy: [
+      {
+        context: ['/api'],
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    ]
   }
 })
 

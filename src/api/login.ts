@@ -1,4 +1,5 @@
 import request from '@/server/server'
+import '../../mock/user'
 
 export const loginApi = (query: any) => {
   const data = {
