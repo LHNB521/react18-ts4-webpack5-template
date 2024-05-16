@@ -2,10 +2,9 @@ import { Configuration, DefinePlugin } from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import WebpackBar from 'webpackbar'
 import * as dotenv from 'dotenv'
+import path from 'path'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { isDev } from './constants'
-
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // 加载配置文件
 const envConfig = dotenv.config({
