@@ -1,6 +1,6 @@
 import { legacy_createStore as createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
-import reduxThunk from 'redux-thunk'
+// import reduxThunk from 'redux-thunk'
 import reduxPromise from 'redux-promise'
 import storage from 'redux-persist/lib/storage'
 import auth from './modules/auth/reducer'
@@ -19,7 +19,7 @@ const persistReducerConfig = persistReducer(persistConfig, reducer)
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 // 使用 redux 中间件
-const middleWares = applyMiddleware(reduxThunk, reduxPromise)
+const middleWares = applyMiddleware(reduxPromise)
 // 创建 store
 const store = createStore(persistReducerConfig, composeEnhancers(middleWares))
 // 创建持久化 store
